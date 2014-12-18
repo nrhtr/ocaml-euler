@@ -30,7 +30,7 @@ let count_occurences =
 let merge_taking_largest a b =
     Map.merge a b ~f:(fun ~key values ->
         match values with
-        | `Both (a, b)       -> if a > b then Some a else Some b
+        | `Both (a, b)       -> Some (max a b)
         | `Left v | `Right v -> Some v
     )
 
